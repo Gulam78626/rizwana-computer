@@ -1,20 +1,144 @@
-name: Jekyll site CI
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizwana Computer</title>
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+}
 
-jobs:
-  build:
+header {
+  text-align:center;
+  padding:20px;
+  background:#1e293b;
+}
 
-    runs-on: ubuntu-latest
+h1 {
+  margin:0;
+  color:#38bdf8;
+}
 
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+.container {
+  padding:20px;
+}
+
+.card {
+  background:#1e293b;
+  padding:20px;
+  margin:15px 0;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+button {
+  padding:12px 20px;
+  border:2px solid #38bdf8;
+  background:transparent;
+  color:#38bdf8;
+  border-radius:25px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover {
+  background:#38bdf8;
+  color:black;
+  transform:scale(1.05);
+}
+
+.services {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+@media(max-width:600px){
+  .services {
+    grid-template-columns:1fr;
+  }
+}
+
+.footer {
+  text-align:center;
+  padding:15px;
+  background:#1e293b;
+}
+
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Rizwana Computer</h1>
+  <p>IT Support & Services</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+  <h2>👨‍💻 Owner</h2>
+  <p>Gulam Gaus Ansari</p>
+  <p>📞 9653292678</p>
+</div>
+
+<div class="card">
+  <h2>🔧 Services</h2>
+  <div class="services">
+    <p>✔ Laptop Repair</p>
+    <p>✔ Desktop Repair</p>
+    <p>✔ Printer Repair</p>
+    <p>✔ Windows Install</p>
+    <p>✔ Network Setup</p>
+    <p>✔ CCTV Setup</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📍 Location</h2>
+  <p>Mumbai / Navi Mumbai</p>
+</div>
+
+<div class="card" style="text-align:center;">
+  <button onclick="call()">📞 Call Now</button>
+  <br><br>
+  <button onclick="whatsapp()">💬 WhatsApp</button>
+</div>
+
+</div>
+
+<div class="footer">
+  © 2026 Rizwana Computer
+</div>
+
+<a class="whatsapp" href="https://wa.me/919653292678">💬</a>
+
+<script>
+function call(){
+  window.location.href = "tel:9653292678";
+}
+
+function whatsapp(){
+  window.location.href = "https://wa.me/919653292678";
+}
+</script>
+
+</body>
+</html>
